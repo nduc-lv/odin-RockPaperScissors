@@ -20,3 +20,39 @@ function playSingleRound(playerSelection, computerSelection){
         return `You won! ${playerSelection} beats ${computerSelection}.`;
     }
 }
+
+//function plays a 5 round game that keeps score and reports a winner or loser at the end
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++){
+        //get player's and computer's choices
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt("Rock, Paper or Scissors? ","");
+
+        //play 
+        let result = playSingleRound(playerSelection, computerSelection);
+        //print the result
+        console.log(result);
+
+        //adding score
+        if (result == "Draw!"){
+            continue;
+        }
+        else if (result[4] == "l"){ // player loses "You lose..."
+            computerScore++;
+        }
+        else{
+            playerScore++;
+        }
+    }
+
+    //determine the winner overall
+    if (computerScore > playerScore){
+        console.log(`Computer: ${computerScore} - Player: ${playerScore}. The winner is Computer`);
+    }
+    else{
+        console.log(`Player: ${playerScore} - Computer: ${computerScore}. The winner is Player`);
+    }
+}
+game();
