@@ -65,14 +65,21 @@ const rock = document.createElement(`button`);
 const scissors = document.createElement(`button`);
 const paper = document.createElement(`button`);
 const button = [rock, paper, scissors];
+//create a div for display results
+const div = document.createElement(`div`);
 //make the button react when be clicked on
 for (let i = 0; i < 3; i++){
     let computerChoice = getComputerChoice();
     button[i].addEventListener(`click`, () => {
-        console.log(playSingleRound(choices[i], computerChoice));
+        //display the result
+        div.textContent = playSingleRound(choices[i], computerChoice);
     });
+    
 }
+
 //add the button to the page
 for (let i = 0; i < 3; i++){
     parent.appendChild(button[i]);
 }
+//add result div to the game
+parent.appendChild(div);
