@@ -22,6 +22,7 @@ function playSingleRound(playerSelection, computerSelection){
 }
 
 //function plays a 5 round game that keeps score and reports a winner or loser at the end
+/*
 function game(){
     let playerScore = 0;
     let computerScore = 0;
@@ -56,3 +57,21 @@ function game(){
     }
 }
 game();
+*/
+
+//create three button, each for each selection
+const parent = document.querySelector(`body`);
+const rock = document.createElement(`button`);
+const scissors = document.createElement(`button`);
+const paper = document.createElement(`button`);
+const button = [rock, paper, scissors];
+//make the button react when be clicked on
+for (let i = 0; i < 3; i++){
+    button[i].addEventListener(`click`, () => {
+        console.log(choices[i]);
+    });
+}
+//add the button to the page
+for (let i = 0; i < 3; i++){
+    parent.appendChild(button[i]);
+}
