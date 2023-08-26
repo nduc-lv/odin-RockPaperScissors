@@ -67,8 +67,9 @@ const paper = document.createElement(`button`);
 const button = [rock, paper, scissors];
 //make the button react when be clicked on
 for (let i = 0; i < 3; i++){
+    let computerChoice = getComputerChoice();
     button[i].addEventListener(`click`, () => {
-        console.log(choices[i]);
+        console.log(playSingleRound(choices[i], computerChoice));
     });
 }
 //add the button to the page
